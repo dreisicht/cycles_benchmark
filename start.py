@@ -7,9 +7,9 @@ print("Preparing Benchmark.")
 def render(version, filename, processor):
     base_string = "{} -b ./blends/{}.blend -P {} -o ./img/{} -f {}"
     
-    command_str_tmp = base_string.format(version, filename[0], filename[0], processor, filename[1])
+    command_str_tmp = base_string.format(version, filename[0], processor, filename[0]+"_##.png", filename[1])
     command_str = command_str_tmp.replace("./", cwd)
-    print("||||||||||||||||||||||||||||||||||||||||||||||", command_str)
+    print("--> Command String: ", command_str)
     subprocess.Popen(command_str)
 
 cwd = os.getcwd().replace("\\", "/") +"/"
@@ -27,6 +27,4 @@ cube27 = ("default_cube_2.7", 1)
 cube28 = ("default_cube_2.8", 1)
 
 render(blender27, cube27, cpu)
-
-
-
+render(blender27, cube27, cpu)

@@ -5,7 +5,7 @@ import time
 print("Preparing Benchmark.")
 
 def render(version, filename, processor):
-    base_string = "{} -b ./blends/{}.blend -P {} -o ./img/{} -f {}"
+    base_string = "{} --enable-autoexec -b ./blends/{}.blend -P {} -o ./img/{} -f {}"
 
     # TODO make sure meta data is in blender enabled
     if processor == 0 and version == "./blender/blender-2.79b/blender.exe":
@@ -17,7 +17,7 @@ def render(version, filename, processor):
     elif processor == 1 and version == "./blender/blender-2.80rc1/blender.exe":
         renderscript = "./script/gpu28.py"
     elif processor == 2 and version == "./blender/blender-2.80rc1/blender.exe":
-        renderscript = "./script/gpucpu28.py"
+        renderscript = "./script/cpugpu28.py"
     
     opt = create_opt_str(version, filename, processor)
     command_str_tmp = base_string.format(version, filename[0], renderscript, opt, filename[1])
@@ -78,18 +78,18 @@ render(blender28, cube, cpu)
 render(blender28, cube, gpu)
 render(blender28, cube, cpugpu)
 
-render(blender27, bmw, cpu)
-render(blender27, bmw, gpu)
-render(blender28, bmw, cpu)
-render(blender28, bmw, gpu)
-render(blender28, bmw, cpugpu)
+# render(blender27, bmw, cpu)
+# render(blender27, bmw, gpu)
+# render(blender28, bmw, cpu)
+# render(blender28, bmw, gpu)
+# render(blender28, bmw, cpugpu)
 
-render(blender27, classroom, cpu)
-render(blender27, classroom, gpu)
-render(blender28, classroom, cpu)
-render(blender28, classroom, gpu)
-render(blender28, classroom, cpugpu)
+# render(blender27, classroom, cpu)
+# render(blender27, classroom, gpu)
+# render(blender28, classroom, cpu)
+# render(blender28, classroom, gpu)
+# render(blender28, classroom, cpugpu)
 
-render(blender28, attic, cpu)
-render(blender28, attic, gpu)
-render(blender28, attic, cpugpu)
+# render(blender28, attic, cpu)
+# render(blender28, attic, gpu)
+# render(blender28, attic, cpugpu)

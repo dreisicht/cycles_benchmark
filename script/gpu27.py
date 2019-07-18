@@ -1,14 +1,11 @@
 import bpy
-cycles_pref = bpy.context.preferences.addons['cycles'].preferences
-cycles_pref.compute_device_type = 'CUDA'
 
-bpy.ops.render.render(True)
+currentScene = bpy.context.scene.name
 
-for device in cycles_pref.devices:
-    print(device)
-    if "GeForce" in str(device.name):
-        device.use = True
-    if "GHz" in str(device.name):
-        device.use = False
-
+bpy.context.scene.render.engine = 'CYCLES'
+bpy.data.scenes[currentScene].cycles.device = 'GPU'
 bpy.context.scene.cycles.device = 'GPU'
+
+bpy.context.user_preferences.addons['cycles'].preferences.compute_device_type = "CUDA"
+bpy.context.user_preferences.addons['cycles'].preferences.devices[0].use = True
+bpy.context.user_preferences.addons['cycles'].preferences.devices[1].use = True

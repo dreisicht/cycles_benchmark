@@ -27,7 +27,8 @@ def render(version, filename, processor):
     command_str_tmp = base_string.format(
         version, filename[0], renderscript, opt, filename[1])
     command_str = command_str_tmp.replace("./", cwd)
-    print("--> Launching new Test: ", command_str)
+    print("--> Launching new Test: ")
+    print(command_str)
     process = subprocess.run(
         command_str, encoding='utf-8', stdout=subprocess.PIPE)
 
@@ -58,7 +59,7 @@ def delta_timer():
     global last_time
     deltat = datetime.datetime.now() - last_time
     last_time = datetime.datetime.now()
-    print(deltat)
+    # print(deltat)
     return deltat
 
 # Static declarations
@@ -108,45 +109,45 @@ render(blender28, cube, cpugpu)
 timeList.append(delta_timer())
 
 
-# render(blender27, bmw, cpu)
+render(blender27, bmw, cpu)
 timeList.append(delta_timer())
 
-# render(blender27, bmw, gpu)
+render(blender27, bmw, gpu)
 timeList.append(delta_timer())
 
-# render(blender28, bmw, cpu)
+render(blender28, bmw, cpu)
 timeList.append(delta_timer())
 
-# render(blender28, bmw, gpu)
+render(blender28, bmw, gpu)
 timeList.append(delta_timer())
 
-# render(blender28, bmw, cpugpu)
-timeList.append(delta_timer())
-
-
-# render(blender27, classroom, cpu)
-timeList.append(delta_timer())
-
-# render(blender27, classroom, gpu)
-timeList.append(delta_timer())
-
-# render(blender28, classroom, cpu)
-timeList.append(delta_timer())
-
-# render(blender28, classroom, gpu)
-timeList.append(delta_timer())
-
-# render(blender28, classroom, cpugpu)
+render(blender28, bmw, cpugpu)
 timeList.append(delta_timer())
 
 
-# render(blender28, attic, cpu)
+render(blender27, classroom, cpu)
 timeList.append(delta_timer())
 
-# render(blender28, attic, gpu)
+render(blender27, classroom, gpu)
 timeList.append(delta_timer())
 
-# render(blender28, attic, cpugpu)
+render(blender28, classroom, cpu)
+timeList.append(delta_timer())
+
+render(blender28, classroom, gpu)
+timeList.append(delta_timer())
+
+render(blender28, classroom, cpugpu)
+timeList.append(delta_timer())
+
+
+render(blender28, attic, cpu)
+timeList.append(delta_timer())
+
+render(blender28, attic, gpu)
+timeList.append(delta_timer())
+
+render(blender28, attic, cpugpu)
 timeList.append(delta_timer())
 
 

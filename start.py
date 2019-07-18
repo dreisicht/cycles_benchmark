@@ -70,8 +70,26 @@ f = open("blender_benchmark.log", "w")
 f.write("")
 f.close()
 
+# Matrix
+
 render(blender27, cube, cpu)
 render(blender27, cube, gpu)
 render(blender28, cube, cpu)
 render(blender28, cube, gpu)
 render(blender28, cube, cpugpu)
+
+render(blender27, bmw, cpu)
+render(blender27, bmw, gpu)
+render(blender28, bmw, cpu)
+render(blender28, bmw, gpu)
+render(blender28, bmw, cpugpu)
+
+render(blender27, classroom, cpu)
+render(blender27, classroom, gpu)
+render(blender28, classroom, cpu)
+render(blender28, classroom, gpu)
+render(blender28, classroom, cpugpu)
+
+render(blender28, attic, cpu)
+render(blender28, attic, gpu)
+render(blender28, attic, cpugpu)

@@ -9,6 +9,6 @@ for device in cycles_pref.devices:
     if "GeForce" in str(device.name):
         device.use = True
     if "GHz" in str(device.name):
-        device.use = False
+        device.use = True
 
 bpy.context.scene.cycles.device = 'GPU'

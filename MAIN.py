@@ -109,20 +109,46 @@ timeList.append(delta_timer())
 
 
 # render(blender27, bmw, cpu)
+timeList.append(delta_timer())
+
 # render(blender27, bmw, gpu)
+timeList.append(delta_timer())
+
 # render(blender28, bmw, cpu)
+timeList.append(delta_timer())
+
 # render(blender28, bmw, gpu)
+timeList.append(delta_timer())
+
 # render(blender28, bmw, cpugpu)
+timeList.append(delta_timer())
+
 
 # render(blender27, classroom, cpu)
+timeList.append(delta_timer())
+
 # render(blender27, classroom, gpu)
+timeList.append(delta_timer())
+
 # render(blender28, classroom, cpu)
+timeList.append(delta_timer())
+
 # render(blender28, classroom, gpu)
+timeList.append(delta_timer())
+
 # render(blender28, classroom, cpugpu)
+timeList.append(delta_timer())
+
 
 # render(blender28, attic, cpu)
+timeList.append(delta_timer())
+
 # render(blender28, attic, gpu)
+timeList.append(delta_timer())
+
 # render(blender28, attic, cpugpu)
+timeList.append(delta_timer())
+
 
 # Printing of proper Benchmark
 

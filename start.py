@@ -25,8 +25,12 @@ def render(version, filename, processor):
     print("--> Command String: ", command_str)
     process = subprocess.run(
         command_str, encoding='utf-8', stdout=subprocess.PIPE)
-    for line in process.stdout.split('\n'):
-        print(line)
+
+    # print(process.stdout)
+    f = open("blender_benchmark.log", "a")
+    f.write(process.stdout)
+    # for line in process.stdout.split('\n'):
+        # print(line)
 
 def create_opt_str(version, filename, processor):
     if version == "./blender/blender-2.79b/blender.exe":
@@ -43,6 +47,7 @@ def create_opt_str(version, filename, processor):
 
     return filename[0]+"-"+processor_tmp+"-"+version_tmp+"_#.png"
 
+### Static declarations
 
 cwd = os.getcwd().replace("\\", "/") +"/"
 
@@ -56,8 +61,17 @@ cpugpu = 2
 attic = ("attic_2.8", 1)
 bmw = ("bmw_2.7", 1)
 classroom = ("classroom_2.7", 1)
-cube27 = ("default_cube_2.7", 1)
-cube28 = ("default_cube_2.8", 1)
+cube = ("default_cube_2.7", 1)
 
-render(blender27, cube27, cpu)
-# render(blender28, cube27, cpu)
+### Main Program
+
+# Delete Contents of log file
+f = open("blender_benchmark.log", "w")
+f.write("")
+f.close()
+
+render(blender27, cube, cpu)
+render(blender27, cube, gpu)
+render(blender28, cube, cpu)
+render(blender28, cube, gpu)
+render(blender28, cube, cpugpu)
